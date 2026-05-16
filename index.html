@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hardik Jain Sogani — AI & GenAI Technical Program Manager</title>
+<meta name="description" content="Technical Program Manager shipping AI and GenAI programs in production at Goldman Sachs. AI governance, LLM workflow design, cross-functional delivery." />
+<meta name="theme-color" content="#FAFAF7" />
+
+<meta property="og:title" content="Hardik Jain Sogani — AI & GenAI Technical Program Manager" />
+<meta property="og:description" content="Shipping AI programs through enterprise governance. The gap between POC and production is where I work." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Hanken+Grotesk:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-elev: #F2EFE6;
+    --text: #0A0A0A;
+    --text-2: #525252;
+    --text-3: #8A8A85;
+    --rule: #E6E3DA;
+    --rule-strong: #D4D0C5;
+    --accent: #B5462E;
+    --accent-soft: rgba(181, 70, 46, 0.08);
+
+    --dark-bg: #0B1222;
+    --dark-bg-2: #0F1A2E;
+    --dark-bg-3: #152138;
+    --dark-text: #F5F7FA;
+    --dark-text-2: rgba(245, 247, 250, 0.55);
+    --dark-text-3: rgba(245, 247, 250, 0.35);
+    --dark-accent: #6AABF0;
+    --dark-rule: rgba(255, 255, 255, 0.08);
+
+    --max: 1120px;
+    --max-narrow: 720px;
+    --pad-x: clamp(20px, 4vw, 48px);
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16.5px;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .display { font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 30; letter-spacing: -0.02em; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 500;
+  }
+
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(250, 250, 247, 0.78);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease);
+  }
+  .nav.scrolled { border-bottom-color: var(--rule); }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px var(--pad-x);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .nav-brand .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin: 0 8px 1px 0;
+    vertical-align: middle;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .nav-links {
+    display: flex;
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  .nav-links a {
+    font-size: 13.5px;
+    color: var(--text-2);
+    transition: color 0.2s var(--ease);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    height: 1px;
+    width: 0;
+    background: var(--text);
+    transition: width 0.25s var(--ease);
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+  @media (max-width: 640px) {
+    .nav-links a:not(.always) { display: none; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 180px 0 120px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 80px; right: -10vw;
+    width: 60vw; height: 60vw;
+    max-width: 700px; max-height: 700px;
+    background: radial-gradient(circle, rgba(181, 70, 46, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.9s var(--ease) 0.1s forwards;
+  }
+  .hero-eyebrow .pill-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 400;
+    font-size: clamp(40px, 7.5vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 28px;
+    max-width: 14ch;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) 0.2s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 400;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: clamp(17px, 1.6vw, 21px);
+    color: var(--text-2);
+    max-width: 56ch;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) 0.4s forwards;
+  }
+  .hero-tagline {
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: var(--text);
+    max-width: 56ch;
+    margin-bottom: 56px;
+    line-height: 1.55;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) 0.55s forwards;
+  }
+  .hero-tagline strong { font-weight: 600; }
+  .hero-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) 0.7s forwards;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+  .hero-meta .meta-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text-3);
+  }
+  .hero-meta .live { background: #5CB85C; box-shadow: 0 0 0 3px rgba(92, 184, 92, 0.18); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ SECTION FRAMEWORK ============ */
+  section {
+    padding: clamp(80px, 10vw, 140px) 0;
+    position: relative;
+  }
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 48px;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  .section-label .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+  }
+  .section-label .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ ABOUT ============ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .about-aside {
+    position: sticky;
+    top: 100px;
+  }
+  @media (max-width: 760px) { .about-aside { position: static; } }
+  .about-aside h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+  .about-aside h2 em { font-style: italic; color: var(--accent); }
+  .about-aside p {
+    font-size: 14px;
+    color: var(--text-3);
+    line-height: 1.55;
+  }
+  .about-body p {
+    font-size: clamp(16px, 1.5vw, 18.5px);
+    color: var(--text);
+    line-height: 1.65;
+    margin-bottom: 22px;
+    max-width: 56ch;
+  }
+  .about-body p:last-child { margin-bottom: 0; color: var(--text-2); }
+  .about-body strong { color: var(--text); font-weight: 600; }
+
+  /* ============ WORK / CASE STUDIES ============ */
+  .case {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: clamp(28px, 4vw, 64px);
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .case:first-of-type { border-top: 1px solid var(--rule-strong); }
+  .case:last-of-type { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 820px) {
+    .case { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  }
+  .case-aside {
+    position: sticky;
+    top: 100px;
+  }
+  @media (max-width: 820px) { .case-aside { position: static; } }
+  .case-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+  }
+  .case-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    text-transform: uppercase;
+  }
+  .case-meta div + div { margin-top: 2px; }
+  .case h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 450;
+    font-size: clamp(26px, 3.2vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+    max-width: 22ch;
+  }
+  .case-tagline {
+    font-size: 16px;
+    color: var(--text-2);
+    margin-bottom: 32px;
+    max-width: 60ch;
+    line-height: 1.5;
+  }
+  .case-tagline strong { color: var(--text); font-weight: 600; }
+  .case-block { margin-bottom: 26px; max-width: 64ch; }
+  .case-block:last-child { margin-bottom: 0; }
+  .case-block-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .case-block p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .case-block p + p { margin-top: 12px; }
+  .case-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .case-block li {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.6;
+    padding: 7px 0 7px 22px;
+    position: relative;
+  }
+  .case-block li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-3);
+    font-family: 'Fraunces', serif;
+  }
+  .case-block li strong { font-weight: 600; }
+  .case-lesson {
+    margin-top: 32px;
+    padding: 22px 26px;
+    background: var(--bg-elev);
+    border-left: 2px solid var(--accent);
+    border-radius: 2px;
+    max-width: 64ch;
+  }
+  .case-lesson .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .case-lesson p {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 60;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  /* ============ BUILT — DARK SECTION ============ */
+  .built {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    padding: clamp(80px, 10vw, 140px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .built::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 0%, rgba(106, 171, 240, 0.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 100%, rgba(106, 171, 240, 0.06), transparent 60%);
+    pointer-events: none;
+  }
+  .built::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .built .container { position: relative; z-index: 1; }
+  .built .section-label {
+    border-top-color: var(--dark-rule);
+  }
+  .built .section-label .num,
+  .built .section-label .title { color: var(--dark-text-3); }
+  .built .section-label .title { color: var(--dark-text); }
+
+  .built-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 760px) {
+    .built-head { grid-template-columns: 1fr; align-items: start; }
+  }
+  .built-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 450;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .built-title em {
+    font-style: italic;
+    color: var(--dark-accent);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 400;
+  }
+  .built-shipped {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dark-text-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .built-shipped .dot { width: 6px; height: 6px; border-radius: 50%; background: #5CB85C; box-shadow: 0 0 0 3px rgba(92,184,92,0.2); }
+  .built-tagline {
+    font-size: clamp(18px, 1.6vw, 22px);
+    color: var(--dark-text-2);
+    line-height: 1.5;
+    max-width: 56ch;
+    margin-bottom: 40px;
+  }
+  .built-tagline strong { color: var(--dark-text); font-weight: 500; }
+
+  .built-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s var(--ease);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--dark-accent);
+    color: var(--dark-bg);
+    box-shadow: 0 8px 24px -8px rgba(106, 171, 240, 0.55);
+  }
+  .btn-primary:hover {
+    background: #82bff5;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -8px rgba(106, 171, 240, 0.7);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--dark-text);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .btn-secondary:hover {
+    border-color: var(--dark-accent);
+    color: var(--dark-accent);
+  }
+  .btn .arrow { transition: transform 0.25s var(--ease); }
+  .btn:hover .arrow { transform: translate(2px, -2px); }
+
+  .built-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 4vw, 72px);
+    margin-bottom: 56px;
+  }
+  @media (max-width: 760px) { .built-body { grid-template-columns: 1fr; } }
+  .built-body h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 50, "wght" 500;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .built-body p {
+    font-size: 16px;
+    color: var(--dark-text-2);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .built-body p:last-child { margin-bottom: 0; }
+  .built-body strong { color: var(--dark-text); font-weight: 500; }
+
+  .built-choices {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 56px;
+    border-top: 1px solid var(--dark-rule);
+  }
+  .built-choices li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--dark-rule);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(20px, 3vw, 48px);
+    align-items: baseline;
+  }
+  @media (max-width: 760px) {
+    .built-choices li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+  }
+  .built-choices .choice-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark-accent);
+    font-weight: 500;
+  }
+  .built-choices .choice-body {
+    font-size: 15.5px;
+    color: var(--dark-text-2);
+    line-height: 1.6;
+  }
+  .built-choices .choice-body strong { color: var(--dark-text); font-weight: 500; }
+
+  .built-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .stack-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    padding: 6px 12px;
+    border: 1px solid var(--dark-rule);
+    border-radius: 99px;
+    color: var(--dark-text-2);
+    letter-spacing: 0.04em;
+  }
+  .built-closer {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 60, "wght" 350;
+    font-style: italic;
+    font-size: clamp(18px, 1.8vw, 22px);
+    color: var(--dark-text);
+    line-height: 1.5;
+    max-width: 56ch;
+    padding-top: 32px;
+    border-top: 1px solid var(--dark-rule);
+  }
+
+  /* ============ IMPACT METRICS ============ */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .metric {
+    background: var(--bg);
+    padding: 32px 28px;
+    transition: background 0.25s var(--ease);
+  }
+  .metric:hover { background: var(--bg-elev); }
+  .metric-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 40, "wght" 400;
+    font-size: clamp(40px, 4.5vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .metric-num em { font-style: italic; color: var(--accent); font-variation-settings: "opsz" 144, "SOFT" 100; }
+  .metric-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    line-height: 1.5;
+  }
+
+  /* ============ EXPERIENCE ============ */
+  .timeline { border-top: 1px solid var(--rule); }
+  .job {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(20px, 4vw, 56px);
+    padding: 32px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  @media (max-width: 760px) {
+    .job { grid-template-columns: 1fr; gap: 6px; }
+  }
+  .job-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    text-transform: uppercase;
+  }
+  .job-content { max-width: 60ch; }
+  .job-role {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 50, "wght" 500;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
+  }
+  .job-company {
+    font-size: 14.5px;
+    color: var(--text-2);
+    margin-bottom: 14px;
+  }
+  .job-company .loc { color: var(--text-3); }
+  .job-desc {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .job.current .job-period::after {
+    content: '· LIVE';
+    color: #4A8F4A;
+    margin-left: 6px;
+    font-weight: 500;
+  }
+
+  /* ============ CAPABILITIES ============ */
+  .caps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .cap {
+    padding: 28px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .cap h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .cap ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cap li {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.85;
+    padding: 0;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact {
+    padding: clamp(80px, 10vw, 140px) 0 80px;
+    border-top: 1px solid var(--rule);
+  }
+  .contact h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "wght" 400;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
+  }
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .contact-body {
+    font-size: clamp(17px, 1.6vw, 21px);
+    color: var(--text-2);
+    line-height: 1.55;
+    max-width: 50ch;
+    margin-bottom: 48px;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 64px;
+  }
+  .contact-row {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 14px;
+    max-width: 540px;
+    transition: border-color 0.25s var(--ease);
+  }
+  .contact-row:hover { border-bottom-color: var(--text); }
+  .contact-row .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    min-width: 90px;
+  }
+  .contact-row a {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 36, "SOFT" 50, "wght" 400;
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: var(--text);
+    transition: color 0.25s var(--ease);
+    letter-spacing: -0.01em;
+  }
+  .contact-row a:hover { color: var(--accent); }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer a { color: var(--text-3); transition: color 0.25s var(--ease); }
+  footer a:hover { color: var(--text); }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =============== NAV =============== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand"><span class="dot"></span>Hardik Jain Sogani</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#built">Built</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="always">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- =============== HERO =============== -->
+<header class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-eyebrow eyebrow">
+      <span class="pill-dot"></span>
+      AI &amp; GenAI · Technical Program Manager
+    </div>
+    <h1 class="display">Most AI programs fail at the <em>handoff</em>.</h1>
+    <p class="hero-sub">Between the model and the workflow. Between engineering and ops. Between &ldquo;POC&rdquo; and &ldquo;in production.&rdquo; That gap is where I work.</p>
+    <p class="hero-tagline"><strong>Technical Program Manager</strong> shipping AI and GenAI in production at Goldman Sachs.</p>
+    <div class="hero-meta">
+      <span><span class="meta-dot live"></span>Open to conversations</span>
+      <span><span class="meta-dot"></span>San Francisco Bay Area</span>
+      <span><span class="meta-dot"></span>MBA + MSBA · CAPM®</span>
+    </div>
+  </div>
+</header>
+
+<!-- =============== ABOUT =============== -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">01</span>
+      <span class="title">About</span>
+    </div>
+    <div class="about-grid">
+      <aside class="about-aside reveal">
+        <h2 class="display">How I <em>work</em>.</h2>
+        <p>A point of view, not a job summary.</p>
+      </aside>
+      <div class="about-body reveal">
+        <p>I ship AI programs through enterprise constraints — AI governance, compliance review, vendor handoffs, executive cadences. The work that makes the difference between a flashy POC and a system that actually runs in production every quarter.</p>
+        <p>Right now I lead <strong>AI and GenAI program delivery for global tax operations at Goldman Sachs</strong>. I scope LLM pipelines with engineering, navigate governance with compliance, and own the program voice across 30+ VP and MD stakeholders. Most weeks I&rsquo;m closing the gap between three groups who all need to say yes to the same artifact: engineering who built it, ops who runs it, and governance who has to sign off.</p>
+        <p>Before Goldman: agile delivery for a SaaS platform with ML personalization (70% engagement lift), a peer-to-peer fintech product built from zero PRD, and two years at Accenture managing cloud and security operations across 26 countries. Dual graduate degrees from the University of Utah &mdash; MBA and MS in Business Analytics &mdash; on an electrical engineering foundation.</p>
+        <p>If you&rsquo;re building AI programs in enterprise environments, I&rsquo;d genuinely enjoy comparing notes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== SELECTED WORK =============== -->
+<section id="work">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">02</span>
+      <span class="title">Selected Work</span>
+    </div>
+
+    <!-- CASE 1 -->
+    <article class="case reveal">
+      <aside class="case-aside">
+        <div class="case-num">CASE 01</div>
+        <div class="case-meta">
+          <div>Goldman Sachs</div>
+          <div>2025 — Present</div>
+          <div>AI · LLM · Governance</div>
+        </div>
+      </aside>
+      <div class="case-content">
+        <h3 class="display">Production AI through enterprise governance</h3>
+        <p class="case-tagline">Shipping a regulatory classification engine: <strong>400+ quarterly U.S. tax regulatory updates</strong> ingested by LLM, classified, and routed. <strong>~90% reduction</strong> in manual processing effort.</p>
+
+        <div class="case-block">
+          <div class="case-block-label">The problem</div>
+          <p>Goldman Sachs tax operations ingests 400+ U.S. regulatory updates every quarter. Each one has to be read, classified by domain and urgency, and routed to the right workstream — historically a manual senior-analyst job consuming hours of expert judgment time on inputs that mostly weren&rsquo;t the high-judgment ones. The obvious solution was AI. The non-obvious problem was shipping it inside a Tier-1 financial institution where AI governance, compliance review, and data-handling guardrails shift quarter to quarter.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">How I framed it</div>
+          <p>Most AI program failures aren&rsquo;t model failures &mdash; they&rsquo;re handoff failures. So I scoped this less as an LLM problem and more as a governance and workflow problem with an LLM at the center. Three parallel tracks: the classification pipeline itself with engineering, the AI governance review and compliance sign-off path, and the human-in-the-loop checkpoints operations would actually trust at scale.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">What I shipped</div>
+          <ul>
+            <li>LLM-based classification and routing pipeline processing 400+ updates per quarter</li>
+            <li>AI governance review artifacts: model risk documentation, data-handling controls, evaluation criteria</li>
+            <li>Human-in-the-loop review interface designed around how analysts actually work, not a theoretical workflow</li>
+            <li>Evaluation harness so accuracy can be measured on each new quarterly batch &mdash; not just at launch</li>
+            <li>Stakeholder communication plan that gave 30+ VP/MD-level stakeholders ongoing visibility and confidence</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">Outcome</div>
+          <p><strong>~90% reduction in manual processing effort.</strong> Pipeline live in production. Senior analyst capacity reclaimed for actual judgment work.</p>
+        </div>
+
+        <div class="case-lesson">
+          <div class="label">What I&rsquo;d tell another TPM</div>
+          <p>In regulated enterprise AI, the model is the easy part. The hard part is designing the program so governance, ops, and engineering can all say yes to the same artifact &mdash; and so the system has an evaluation story when audit comes asking.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 2 -->
+    <article class="case reveal">
+      <aside class="case-aside">
+        <div class="case-num">CASE 02</div>
+        <div class="case-meta">
+          <div>Goldman Sachs</div>
+          <div>2025 — Present</div>
+          <div>GenAI · Workflow</div>
+        </div>
+      </aside>
+      <div class="case-content">
+        <h3 class="display">Using AI on the TPM bottleneck</h3>
+        <p class="case-tagline">AI-generated executive status reporting across <strong>6 workstreams</strong>. Weekly synthesis time collapsed from <strong>~4 hours to ~30 minutes</strong>. Audience: VPs, OSLs, and MDs.</p>
+
+        <div class="case-block">
+          <div class="case-block-label">The problem</div>
+          <p>Every week I was burning ~4 hours stitching together status from 6 workstreams &mdash; engineering, ops, vendor PMs, multiple geographies &mdash; into a coherent narrative for VPs, OSLs, and MDs. The bottleneck wasn&rsquo;t gathering inputs. It was the synthesis: which signals matter for an MD, which escalations need to lead, what gets cut. Classic TPM tax.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">How I framed it</div>
+          <p>Two design principles up front. <strong>One:</strong> AI should compress synthesis time, not replace the program manager&rsquo;s judgment &mdash; the final memo has my name on it, not the model&rsquo;s. <strong>Two:</strong> executives don&rsquo;t trust hallucinated status. The system had to be grounded in source workstream updates, not free-generation.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">What I shipped</div>
+          <ul>
+            <li>Ingest pipeline pulling raw status from 6 workstream owners</li>
+            <li>Structured synthesis prompts producing executive-ready summaries in the format MDs actually consume &mdash; escalations first, then progress, then asks</li>
+            <li>Mandatory manual review and edit checkpoint before anything reaches a VP+</li>
+            <li>Quality bar tracked over time &mdash; accuracy and edit-rate as health metrics</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">Outcome</div>
+          <p>Weekly reporting collapsed from <strong>~4 hours to ~30 minutes</strong>. Capacity reallocated to engineer 1:1s and decision memos that actually move the program.</p>
+        </div>
+
+        <div class="case-lesson">
+          <div class="label">What I&rsquo;d tell another TPM</div>
+          <p>The best AI program to ship first is the one that solves your own bottleneck. You&rsquo;re the user, the QA, and the credibility owner. If you&rsquo;d ship it for yourself, you can probably ship it for the org.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 3 -->
+    <article class="case reveal">
+      <aside class="case-aside">
+        <div class="case-num">CASE 03</div>
+        <div class="case-meta">
+          <div>Goldman Sachs</div>
+          <div>2025 — Present</div>
+          <div>Ambiguity · Migration</div>
+        </div>
+      </aside>
+      <div class="case-content">
+        <h3 class="display">Navigating ambiguity at scale</h3>
+        <p class="case-tagline">Migrating program delivery from Jira to internal workflow platform. No existing playbook. <strong>5+ global teams</strong>. <strong>150+ legacy tickets</strong> liquidated. <strong>98% data accuracy.</strong></p>
+
+        <div class="case-block">
+          <div class="case-block-label">The problem</div>
+          <p>Goldman decided to migrate tax operations program delivery from Jira to an internal workflow platform. No precedent in the org. No existing playbook. 5+ global engineering and ops teams with in-flight programs, none of which could pause while the migration ran underneath them.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">How I framed it</div>
+          <p>When teams deadlock on tooling, my move isn&rsquo;t to argue. It&rsquo;s to design the test that makes the right answer undeniable. So I broke this into three: standardize the intake schema across teams before migrating anything (so we weren&rsquo;t porting chaos), map technical dependencies between in-flight programs to determine migration sequence, and author a cutover plan with explicit rollback criteria.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">What I shipped</div>
+          <ul>
+            <li>Jira-based program governance framework: intake schema, prioritization criteria, reporting dashboards</li>
+            <li>Cleanup pass that liquidated 150+ legacy tickets and lifted data accuracy to 98%</li>
+            <li>Dependency map across 5+ global engineering and ops teams</li>
+            <li>Cutover plan with rollback gates &mdash; now the reference standard for internal-platform delivery</li>
+            <li>Onboarding playbook so incoming team members don&rsquo;t have to discover the system from cold</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-label">Outcome</div>
+          <p>Migration on track. Governance framework adopted as reference standard. <strong>98% data accuracy.</strong> Compounded into onboarding speed for new team members.</p>
+        </div>
+
+        <div class="case-lesson">
+          <div class="label">What I&rsquo;d tell another TPM</div>
+          <p>In ambiguity, the most valuable artifact you can produce is a playbook that didn&rsquo;t exist before you got there. It&rsquo;s how one-time work turns into compound returns for the org.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =============== BUILT — DARK SECTION =============== -->
+<section class="built" id="built">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">03</span>
+      <span class="title">Built</span>
+    </div>
+
+    <div class="built-head reveal">
+      <h2 class="built-title">RAID <em>Sentinel</em></h2>
+      <span class="built-shipped"><span class="dot"></span>Shipped 2026 · Live</span>
+    </div>
+
+    <p class="built-tagline reveal">An <strong>AI-powered PMO tool</strong> that turns project charters into CEO-ready RAID logs. Two-pass LLM extraction. PMI-standard severity scoring. Source-verified quotes. Built solo, end-to-end.</p>
+
+    <div class="built-ctas reveal">
+      <a class="btn btn-primary" href="https://hardikjsogani0605.github.io/raid-sentinel/" target="_blank" rel="noopener">
+        Try it live
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="btn btn-secondary" href="https://github.com/hardikjsogani0605" target="_blank" rel="noopener">
+        Source on GitHub
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="built-body reveal">
+      <div>
+        <h4>The why</h4>
+        <p>Every PM I know spends real time scraping project charters for Risks, Assumptions, Issues, and Dependencies &mdash; and most of what they produce isn&rsquo;t board-ready. RAID extraction is the kind of pattern-recognition work an LLM should handle, but only if the output is grounded in source text and scored to a real standard.</p>
+        <p>So I built it.</p>
+      </div>
+      <div>
+        <h4>What it does</h4>
+        <p>Upload a project charter PDF. RAID Sentinel runs a two-pass LLM pipeline &mdash; first-pass extraction, then a senior-PMO audit pass that catches misses and miscategorizations. Output is a PMI-standard RAID log with executive-ready exports: PDF with charts, CSV, Markdown.</p>
+      </div>
+    </div>
+
+    <ul class="built-choices reveal">
+      <li>
+        <span class="choice-label">Two-pass extract + audit</span>
+        <span class="choice-body">First pass is fast; second pass is the senior reviewer. <strong>Catches umbrella outcomes</strong> (&ldquo;the program might slip&rdquo;) and forces extraction of real underlying drivers.</span>
+      </li>
+      <li>
+        <span class="choice-label">Source quotes mandatory</span>
+        <span class="choice-body">Every RAID item carries a <strong>20&ndash;40 word verbatim quote</strong> from the charter. No hallucinated risks.</span>
+      </li>
+      <li>
+        <span class="choice-label">PMI-standard scoring</span>
+        <span class="choice-body">Real <strong>5&times;5 matrix arithmetic</strong>, not vibes. Severity reasoning tied back to charter language.</span>
+      </li>
+      <li>
+        <span class="choice-label">BYO API key</span>
+        <span class="choice-body"><strong>No data stored.</strong> Governance-friendly by design. Charters are sensitive documents.</span>
+      </li>
+      <li>
+        <span class="choice-label">Refine loop</span>
+        <span class="choice-body">Every item has a <strong>refine-with-feedback path</strong>, because executive judgment still has to override the model.</span>
+      </li>
+    </ul>
+
+    <div class="reveal">
+      <div class="built-stack">
+        <span class="stack-chip">HTML / CSS / JS</span>
+        <span class="stack-chip">Anthropic Claude Sonnet 4.6</span>
+        <span class="stack-chip">Chart.js</span>
+        <span class="stack-chip">jsPDF</span>
+        <span class="stack-chip">In-browser</span>
+      </div>
+      <p class="built-closer">&ldquo;Most of the AI program work in the case studies above happens behind enterprise walls. RAID Sentinel is the version of the same thesis you can actually click on &mdash; AI applied to a TPM bottleneck, designed for production trust, shipped end-to-end.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== IMPACT =============== -->
+<section id="impact">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">04</span>
+      <span class="title">Impact at a Glance</span>
+    </div>
+    <div class="metrics-grid reveal">
+      <div class="metric">
+        <div class="metric-num">95<em>%</em></div>
+        <div class="metric-label">On-time delivery across 30+ VP/MD programs</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">~90<em>%</em></div>
+        <div class="metric-label">Manual effort reduction · regulatory AI pipeline</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">400<em>+</em></div>
+        <div class="metric-label">Quarterly regulatory updates · LLM-classified</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">~85<em>%</em></div>
+        <div class="metric-label">Time saved · weekly executive status reporting</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">98<em>%</em></div>
+        <div class="metric-label">Governance framework data accuracy</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">150<em>+</em></div>
+        <div class="metric-label">Legacy tickets liquidated · governance cleanup</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">70<em>%</em></div>
+        <div class="metric-label">Engagement lift · prior ML personalization program</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">26</div>
+        <div class="metric-label">Countries · prior global security ops portfolio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== EXPERIENCE =============== -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">05</span>
+      <span class="title">Experience</span>
+    </div>
+    <div class="timeline reveal">
+      <div class="job current">
+        <div class="job-period">Sep 2025 — Present</div>
+        <div class="job-content">
+          <div class="job-role">Technical Program Manager, Tax Operations</div>
+          <div class="job-company">Goldman Sachs <span class="loc">· Salt Lake City, UT</span></div>
+          <p class="job-desc">AI and GenAI program delivery across engineering, ops, vendor PMs, and 30+ VP/MD stakeholders. Shipped the regulatory classification engine, executive status pipeline, and Jira-to-internal-platform migration.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-period">May 2024 — May 2025</div>
+        <div class="job-content">
+          <div class="job-role">Technical Project Manager</div>
+          <div class="job-company">Top of Nine · GroupSpace (Ed-Tech SaaS) <span class="loc">· Salt Lake City, UT</span></div>
+          <p class="job-desc">Agile delivery for SaaS platform with ML personalization. 70% engagement lift via prioritized backlog translated from analytics. SQL and Tableau reporting frameworks for product, eng, and design.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-period">Aug 2023 — May 2024</div>
+        <div class="job-content">
+          <div class="job-role">Project Manager</div>
+          <div class="job-company">Lassonde Entrepreneur Institute <span class="loc">· University of Utah</span></div>
+          <p class="job-desc">Peer-to-peer consumer fintech platform built ground-up. Defined scope from user research with no existing PRD. $150K+ program-spend decisions framed and delivered.</p>
+        </div>
+      </div>
+      <div class="job">
+        <div class="job-period">May 2021 — Jul 2023</div>
+        <div class="job-content">
+          <div class="job-role">Security Analyst · Cloud &amp; ERP</div>
+          <div class="job-company">Accenture <span class="loc">· Gurugram, India</span></div>
+          <p class="job-desc">Global infrastructure and security operations across 6+ enterprise clients in 26 countries. 25% reduction in security incidents via standardized policy rollout across 12 delivery teams.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CAPABILITIES =============== -->
+<section id="capabilities">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">06</span>
+      <span class="title">Capabilities</span>
+    </div>
+    <div class="caps reveal">
+      <div class="cap">
+        <h4>AI Program Delivery</h4>
+        <ul>
+          <li>LLM integration</li>
+          <li>AI governance &amp; compliance</li>
+          <li>Document classification &amp; routing</li>
+          <li>Prompt engineering</li>
+          <li>AI-generated reporting</li>
+          <li>Human-in-the-loop design</li>
+          <li>Evaluation frameworks</li>
+          <li>Workflow automation</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h4>Program Management</h4>
+        <ul>
+          <li>Roadmap planning</li>
+          <li>Dependency mapping</li>
+          <li>OKRs · Risk &amp; escalation</li>
+          <li>Executive cadences</li>
+          <li>Vendor management</li>
+          <li>Build-vs-buy tradeoffs</li>
+          <li>Agile · Scrum · Kanban</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h4>Technical</h4>
+        <ul>
+          <li>SQL · Python</li>
+          <li>ETL &amp; data pipelines</li>
+          <li>API integration</li>
+          <li>Azure · AWS</li>
+          <li>Git</li>
+          <li>Data modeling</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h4>Data &amp; Insights</h4>
+        <ul>
+          <li>Tableau · Power BI · Looker</li>
+          <li>A/B testing</li>
+          <li>KPI dashboards</li>
+          <li>Data quality &amp; governance</li>
+          <li>Experimentation</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h4>Tools</h4>
+        <ul>
+          <li>Jira · Confluence</li>
+          <li>ServiceNow</li>
+          <li>Asana · Monday.com</li>
+        </ul>
+      </div>
+      <div class="cap">
+        <h4>Certifications</h4>
+        <ul>
+          <li>CAPM® · Project Management Institute</li>
+          <li>Tableau Desktop Specialist</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CONTACT =============== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="num">07</span>
+      <span class="title">Contact</span>
+    </div>
+    <h2 class="reveal">Let&rsquo;s <em>compare notes</em>.</h2>
+    <p class="contact-body reveal">Conversations about AI program delivery, governance, or shipping LLMs into regulated environments &mdash; always welcome.</p>
+    <div class="contact-links reveal">
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <a href="mailto:hardikjsogani06@gmail.com">hardikjsogani06@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/hardik-jsogani" target="_blank" rel="noopener">linkedin.com/in/hardik-jsogani</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/hardikjsogani0605" target="_blank" rel="noopener">github.com/hardikjsogani0605</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">Built</span>
+        <a href="https://hardikjsogani0605.github.io/raid-sentinel/" target="_blank" rel="noopener">RAID Sentinel ↗</a>
+      </div>
+    </div>
+    <footer>
+      <span>© 2026 Hardik Jain Sogani</span>
+      <span>Designed and built by me · <a href="https://hardikjsogani0605.github.io/raid-sentinel/" target="_blank" rel="noopener">RAID Sentinel</a></span>
+    </footer>
+  </div>
+</section>
+
+<script>
+  // Sticky nav border on scroll
+  const nav = document.getElementById('nav');
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 8 && !nav.classList.contains('scrolled')) nav.classList.add('scrolled');
+    else if (y <= 8 && nav.classList.contains('scrolled')) nav.classList.remove('scrolled');
+    lastY = y;
+  }, { passive: true });
+
+  // Scroll-triggered reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
